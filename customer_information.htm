@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!--
+      Author: Chris Orser
+      Date:   4/10/2018
+
+      Filename: index.htm
+   -->
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Customer information</title>
+   <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+   <header>
+      <h1>
+         Customer information
+      </h1>
+   </header>
+
+   <article>
+        <div id = "amountDue">
+            <p id="subtotal">Subtotal: $</p>
+            <p id="tax">Tax: $</p>
+            <p id="total">Total: $</p>
+       </div>
+       <form action="submission.htm">
+           <fieldset id="deliveryAddress" class="text">
+            <legend>Name and address</legend>
+            <label for="delivFName">First Name</label>
+            <input id="delivFName" name="DeliveryFirstName" type="text" required="required" />
+            <label for="delivLName">Last Name</label>
+            <input id="delivLName" name="DeliveryLastName" type="text" required="required" />
+            <label for="delivStreet">Street Address</label>
+            <input id="delivStreet" name="DeliveryStreet" type="text" required="required" />
+            <label for="delivCity">City</label>
+            <input id="delivCity" name="DeliveryCity" type="text" required="required" />
+            <label for="delivState">State</label>
+            <select id="delivState" name="DeliveryState" required="required">
+               <option value="AL">AL</option>
+               <option value="AK">AK</option>
+               <option value="AZ">AZ</option>
+               <option value="AR">AR</option>
+               <option value="CA">CA</option>
+               <option value="CO">CO</option>
+               <option value="CT">CT</option>
+               <option value="DE">DE</option>
+               <option value="DC">DC</option>
+               <option value="FL">FL</option>
+               <option value="GA">GA</option>
+               <option value="HI">HI</option>
+               <option value="ID">ID</option>
+               <option value="IL">IL</option>
+               <option value="IN">IN</option>
+               <option value="IA">IA</option>
+               <option value="KS">KS</option>
+               <option value="KY">KY</option>
+               <option value="LA">LA</option>
+               <option value="ME">ME</option>
+               <option value="MD">MD</option>
+               <option value="MA">MA</option>
+               <option value="MI">MI</option>
+               <option value="MN">MN</option>
+               <option value="MS">MS</option>
+               <option value="MO">MO</option>
+               <option value="MT">MT</option>
+               <option value="NE">NE</option>
+               <option value="NV">NV</option>
+               <option value="NH">NH</option>
+               <option value="NJ">NJ</option>
+               <option value="NM">NM</option>
+               <option value="NY">NY</option>
+               <option value="NC">NC</option>
+               <option value="ND">ND</option>
+               <option value="OH">OH</option>
+               <option value="OK">OK</option>
+               <option value="OR">OR</option>
+               <option value="PA">PA</option>
+               <option value="RI">RI</option>
+               <option value="SC">SC</option>
+               <option value="SD">SD</option>
+               <option value="TN">TN</option>
+               <option value="TX">TX</option>
+               <option value="UT">UT</option>
+               <option value="VT">VT</option>
+               <option value="VA">VA</option>
+               <option value="WA">WA</option>
+               <option value="WV">WV</option>
+               <option value="WI">WI</option>
+               <option value="WY">WY</option>
+            </select>
+            <label for="delivZip">Zip</label>
+            <input id="delivZip" name="DeliveryZip" type="number" required="required" />
+            <div>
+            <label for="delivPhone">Phone</label>
+            <input id="delivPhone" name="DeliveryPhone" type="number" required="required" />
+            </div>
+         </fieldset>
+           
+           <fieldset id="paymentInfo" class="text">
+            <legend>Credit card information</legend>
+            <div id="cards" class="inline">
+               <input id="visa" name="PaymentType" type="radio" value="Visa" />
+               <label for="visa">Visa</label>
+               <input id="mc" name="PaymentType" type="radio" value="MC" />
+               <label for="mc">Master Card</label>
+               <input id="discover" name="PaymentType" type="radio" value="Discover" />
+               <label for="discover">Discover</label>
+               <input id="amex" name="PaymentType" type="radio" value="AmEx" />
+               <label for="amex">American Express</label>
+            </div>
+            <div>
+               <label for="ccNum">Card #</label>
+               <input id="ccNum" name="CardNumber" type="number" required="required" />
+            </div>
+            <div>
+               <div class="inline" id="exp">
+                  <label for="expMo" id="expMoLabel">Expiration Month</label>
+                  <select id="expMo" name="ExpMonth" required="required">
+                     <option value="01">01</option>
+                     <option value="02">02</option>
+                     <option value="03">03</option>
+                     <option value="04">04</option>
+                     <option value="05">05</option>
+                     <option value="06">06</option>
+                     <option value="07">07</option>
+                     <option value="08">08</option>
+                     <option value="09">09</option>
+                     <option value="10">10</option>
+                     <option value="11">11</option>
+                     <option value="12">12</option>
+                  </select>
+                  <label for="expYr" id="expYrLabel">Expiration Year</label>
+                  <select id="expYr" name="ExpYear" required="required">
+                     <option value="2018">2018</option>
+                     <option value="2019">2019</option>
+                     <option value="2020">2020</option>
+                     <option value="2021">2021</option>
+                     <option value="2022">2022</option>
+                  </select>
+               </div>
+               <label for="cvv">CVV</label>
+               <input id="cvv" name="CVVValue" type="number" required="required" />
+               </fieldset>
+           
+         <fieldset id="billingAddress" class="text">
+              <div class="checks">
+               <input id="sameAddr" name="SameAddress" type="checkbox" />
+               <label for="sameAddr">Same as above</label>
+            </div>
+            <legend>Billing address</legend>
+            <label for="billFName">First Name</label>
+            <input id="billFName" name="BillingFirstName" type="text" required="required" />
+            <label for="billLName">Last Name</label>
+            <input id="billLName" name="BillingLastName" type="text" required="required" />
+            <label for="billStreet">Street Address</label>
+            <input id="billStreet" name="BillingStreet" type="text" required="required" />
+            <label for="billCity">City</label>
+            <input id="billCity" name="BillingCity" type="text" required="required" />
+            <label for="billState">State</label>
+            <select id="billState" name="BillingState" required="required">
+               <option value="AL">AL</option>
+               <option value="AK">AK</option>
+               <option value="AZ">AZ</option>
+               <option value="AR">AR</option>
+               <option value="CA">CA</option>
+               <option value="CO">CO</option>
+               <option value="CT">CT</option>
+               <option value="DE">DE</option>
+               <option value="DC">DC</option>
+               <option value="FL">FL</option>
+               <option value="GA">GA</option>
+               <option value="HI">HI</option>
+               <option value="ID">ID</option>
+               <option value="IL">IL</option>
+               <option value="IN">IN</option>
+               <option value="IA">IA</option>
+               <option value="KS">KS</option>
+               <option value="KY">KY</option>
+               <option value="LA">LA</option>
+               <option value="ME">ME</option>
+               <option value="MD">MD</option>
+               <option value="MA">MA</option>
+               <option value="MI">MI</option>
+               <option value="MN">MN</option>
+               <option value="MS">MS</option>
+               <option value="MO">MO</option>
+               <option value="MT">MT</option>
+               <option value="NE">NE</option>
+               <option value="NV">NV</option>
+               <option value="NH">NH</option>
+               <option value="NJ">NJ</option>
+               <option value="NM">NM</option>
+               <option value="NY">NY</option>
+               <option value="NC">NC</option>
+               <option value="ND">ND</option>
+               <option value="OH">OH</option>
+               <option value="OK">OK</option>
+               <option value="OR">OR</option>
+               <option value="PA">PA</option>
+               <option value="RI">RI</option>
+               <option value="SC">SC</option>
+               <option value="SD">SD</option>
+               <option value="TN">TN</option>
+               <option value="TX">TX</option>
+               <option value="UT">UT</option>
+               <option value="VT">VT</option>
+               <option value="VA">VA</option>
+               <option value="WA">WA</option>
+               <option value="WV">WV</option>
+               <option value="WI">WI</option>
+               <option value="WY">WY</option>
+            </select>
+            <label for="billZip">Zip</label>
+            <input id="billZip" name="BillingZip" type="number" required="required" />
+            <input type="hidden" id="banhmi" name="banhmi" />
+             <input type="hidden" id="banhmispice" name="banhmispice" />
+            <input type="hidden" id="redcurry" name="redcurry" />
+             <input type="hidden" id="redcurryspice" name="redcurryspice" />
+            <input type="hidden" id="cuminchicken" name="cuminchicken" />
+             <input type="hidden" id="cuminchickenspice" name="cuminchickenspice" />
+             <input type="hidden" id="totalhidden" name="totalhidden" />
+         </fieldset>
+        <div class = "buttonHolder">
+            <input type="submit" id="submitBtn" value="Submit" />
+            </div>
+           </fieldset>
+           </form>
+               
+            <script>
+               function copyDeliveryAddress() {
+                    var deliveryInputElements = document.querySelectorAll("#deliveryAddress input");
+                    var billingInputElements = document.querySelectorAll("#billingAddress input");
+                    if (document.getElementById("sameAddr").checked)
+                    {
+                        for (var i = 0; i < 5; i++)
+                        {
+                            billingInputElements[i + 1].value = deliveryInputElements[i].value;
+                        }
+                        document.querySelector("#billingAddress select").value = document.querySelector("#deliveryAddress select").value;
+                    } else {
+                        for (var i = 0; i < 5; i++)
+                        {
+                                billingInputElements[i + 1].value = "";
+                        }
+                        document.querySelector("#billingAddress select").selectedIndex = -1;
+                    }
+                }
+
+                //assign price constants
+                        const BMPrice = 6.0;
+                        const RCPrice = 7.5;
+                        const CCPrice = 8.0;
+                        const salesTax = 0.06; 
+                
+                var queryArray = [];
+                var assignValue = [];
+                function populateInfo() {
+                    if(location.search) {
+                        //populate form data
+                        var queryData = location.search;
+                        var hiddenInputs = document.querySelectorAll("input[type=hidden]");
+                        queryData = queryData.substring(1, queryData.length);
+                        queryArray = queryData.split("&");
+                        
+                        //assign values for temporary array that deals with skipped spice levels
+                        var fieldNumber = 0;
+                        for (var i = 0; i < queryArray.length; i++) {
+                            assignValue[fieldNumber] = queryArray[i].substring(queryArray[i].lastIndexOf("=") + 1);
+                            //if nothing of food type ordered, assign 0 for food type, none for spice level
+                            if (assignValue[i] == "" || assignValue[i] == 0)
+                            {
+                                assignValue[fieldNumber] = 0;
+                                assignValue[fieldNumber + 1] = "none";
+                                fieldNumber++; //skip spice level field
+                            }
+                            fieldNumber++;
+                        }
+                        
+                        //move values from tempory array to hidden form fields
+                        for (var i = 0; i < assignValue.length; i++) {
+                            hiddenInputs[i].value = assignValue[i];
+                        }
+                            
+                        //assign javascript variables to form/paragraph data
+                        var numberBM = document.getElementById("banhmi").value;
+                        var numberRC = document.getElementById("redcurry").value;
+                        var numberCC = document.getElementById("cuminchicken").value;
+                        var subtotal = document.getElementById("subtotal");
+                        var tax = document.getElementById("tax");
+                        var total = document.getElementById("total");
+                        
+                        //calculate and assign subtotal, tax, and total    
+                        var subtotalDecimal = (numberBM * BMPrice) + (numberRC * RCPrice) + (numberCC * CCPrice);
+                        subtotal.innerHTML = "Subtotal: $" + subtotalDecimal.toFixed(2);
+                        var taxDecimal = subtotalDecimal * salesTax;
+                        tax.innerHTML = "Tax: $" + taxDecimal.toFixed(2);
+                        var totalDecimal = subtotalDecimal + taxDecimal;
+                        total.innerHTML = "Total: $" + totalDecimal.toFixed(2);
+                            
+                        //assign total to last hidden input
+                        var hiddenTotal = document.getElementById("totalhidden");
+                        hiddenTotal.value = totalDecimal;
+                    }
+                }
+                if (window.addEventListener) {
+                    window.addEventListener("load", populateInfo, false);
+                    
+                }   else if (window.attachEvent) {
+                    window.attachEvent("onload", populateInfo);
+                }
+                    
+                var same = document.getElementById("sameAddr");
+                if (same.addEventListener) {
+                    same.addEventListener("click", copyDeliveryAddress, false);
+                } else if (same.attachEvent) {
+                    same.attachEvent("onclick", copyDeliveryAddress)
+                }
+                    
+            </script>
+               
+   </article>
+</body>
+</html>

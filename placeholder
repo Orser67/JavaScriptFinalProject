@@ -1,0 +1,137 @@
+<legend>Name and address</legend>
+            <div class="Name">
+                <label>Name</label>
+                <input id="Name" required="required" />
+             </div>
+             <div class="Street">
+                <label>Street Address</label>
+                <input id="Street" required="required" />
+             </div>
+             <div class="City">
+                <label>City</label>
+                <input id="City" required="required" />
+             </div>
+             <div class="State">
+                <label>State</label>
+                <input id="State" required="required" />
+             </div>
+             <div class="Zip">
+                <label>Zip code</label>
+                <input id="Zip" required="required" />
+             </div>
+             
+            <div class="offset">
+               <label for="ccNum">Card #</label>
+               <input id="ccNum" name="CardNumber" type="number" required="required" />
+               <div id="ccNumErrorMessage"></div>
+            </div>
+            <div id="cards" class="inline">
+               <input id="visa" name="PaymentType" type="radio" value="Visa" />
+               <label for="visa">Visa</label>
+               <input id="mc" name="PaymentType" type="radio" value="MC" />
+               <label for="mc">Master Card</label>
+               <input id="discover" name="PaymentType" type="radio" value="Discover" />
+               <label for="discover">Discover</label>
+               <input id="amex" name="PaymentType" type="radio" value="AmEx" />
+               <label for="amex">American Express</label>
+            </div>
+            <div class="offset">
+               <label>Expiration</label>
+               <div class="inline" id="exp">
+                  <label for="expMo" id="expMoLabel">Expiration Month</label>
+                  <select id="expMo" name="ExpMonth" required="required">
+                     <option value="01">01</option>
+                     <option value="02">02</option>
+                     <option value="03">03</option>
+                     <option value="04">04</option>
+                     <option value="05">05</option>
+                     <option value="06">06</option>
+                     <option value="07">07</option>
+                     <option value="08">08</option>
+                     <option value="09">09</option>
+                     <option value="10">10</option>
+                     <option value="11">11</option>
+                     <option value="12">12</option>
+                  </select>
+                  <label for="expYr" id="expYrLabel">Expiration Year</label>
+                  <select id="expYr" name="ExpYear" required="required">
+                     <option value="2017">2017</option>
+                     <option value="2018">2018</option>
+                     <option value="2019">2019</option>
+                     <option value="2020">2020</option>
+                     <option value="2021">2021</option>
+                  </select>
+               </div>
+               <label for="cvv">CVV</label>
+               <input id="cvv" name="CVVValue" type="number" required="required" /> 
+            </div>
+            
+            //convert form data to numeric types    
+                        console.log("numberBMString:" + numberBMstring);
+                        console.log("numberBMString:" + (numberBMstring * 5));
+                        console.log("numberRCString:" + numberRCstring);
+                        console.log("numberCCString:" + numberCCstring);
+                            
+                        var numberBMNumber = 0;
+                        var numberRCNumber = 0;
+                        var numberCCNumber = 0;
+                            
+                        try {
+                            numberBMNumber = parseInt(numberBMString);
+                            console.log("try success: numberBMNumber:" + numberBMNumber);
+                        } 
+                        catch(error)
+                        {
+                            numberBMNumber = 0;
+                            console.log("numberBM caught");
+                        }
+                        
+                        try {
+                            numberRCNumber = parseFloat(numberRCString);
+                            console.log("try success: numberRCNumber:" + numberRCNumber);
+                        } 
+                        catch(error)
+                        {
+                            numberRCNumber = 0;
+                            console.log("numberRC caught");
+                        }
+                    
+                        try {
+                            numberCCNumber = parseFloat(numberCCString);
+                            console.log("try success: numberCCNumber:" + numberCCNumber);
+                        } 
+                        catch(error)
+                        {
+                            numberCCNumber = 0;   
+                            console.log("numberCC caught");
+                        }
+                            
+                        /*    
+                        if (numberBMString == undefined)
+                        {
+                            numberBMNumber = 0;
+                        } else
+                        {
+                            numberBMNumber = parseFloat(numberBMString);
+                        }
+                            
+                        if (numberRCString == undefined)
+                        {
+                            numberRCNumber = 0;
+                        } else
+                        {
+                            numberRCNumber = parseFloat(numberRCString);
+                        }   
+                            
+                         if (numberCCString == undefined)
+                        {
+                            numberCCNumber = 0;
+                        } else
+                        {
+                            numberCCNumber = parseFloat(numberCCString);
+                        }
+                        */
+                            
+                        numberBMNumber = 1;
+                        numberRCNumber = 1;
+                        numberCCNumber = 1;

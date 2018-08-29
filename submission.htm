@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!--
+      Author: Chris Orser
+      Date:   4/10/2018
+
+      Filename: submitted.htm
+   -->
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Order submitted</title>
+   <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+   <header>
+      <h1>
+         Thank you for your order.
+      </h1>
+   </header>
+    
+    <nav>
+         <ul>
+            <li><a href="index.htm">Home</a></li>
+            <li><a href="orderonline.htm">Order Online</a></li>
+            <li><a href="contact.htm">Contact Us</a></li>
+         </ul>
+      </nav>
+
+   <article>
+      <div class="submission">
+          <h3>You entered the following data:</h3>
+      </div>
+       <div class="results">
+         <ul></ul>
+        </div>
+   
+         <script>
+             function parseData() {
+                var formData = decodeURIComponent(location.search);
+                var formArray = [];
+                var list = document.querySelector("div.results ul");
+                formData = formData.substring(1, formData.length);
+                while (formData.indexOf("+") !== -1) {
+                    formData = formData.replace("+", " ");
+                }
+                formData = decodeURIComponent(formData);
+                formArray = formData.split("&");
+                 
+                for (i = 0; i < formArray.length; i++)
+                {
+                    formArray[i] = formArray[i].substring(formArray[i].lastIndexOf("=") + 1);
+                }
+                 
+                var keyDataArray = [
+                    "First name: " + formArray[0],
+                    "Last name: " + formArray[1],
+                    "Address: " + formArray[2] + " " + formArray[3] + " " + formArray[4] + " " + formArray[5],
+                    "Phone: " + formArray[6],
+                    "Credit card type: " + formArray[7],
+                    "Total charge: $" + formArray[formArray.length - 1]
+                ];
+                 
+                 
+                for (var i = 0; i < keyDataArray.length; i++) {
+                    var newItem = document.createElement("li");
+                    newItem.innerHTML = keyDataArray[i];
+                    list.appendChild(newItem);
+                }
+             }
+             
+             if (window.addEventListener) {
+                 window.addEventListener("load", parseData, false);
+             } else if (window.attachEvent) {
+                 window.attachEvent("onload", parseData)
+             }
+         </script>
+   </article>
+</body>
+</html>

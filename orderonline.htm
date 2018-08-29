@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <!--
+      Author: Chris Orser
+      Date:   4/10/2018
+
+      Filename: orderonline.htm
+   -->
+   <meta charset="utf-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+   <meta name="viewport" content="width=page-width, initial-scale=1.0">
+   <title>Order online</title>
+   <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+   <div>
+      <header>
+         <h1>Order online</h1>
+         <img src="Cumin%20chicken.jpg" width="258" height="147" />
+      </header>
+
+      <nav>
+         <ul>
+            <li><a href="index.htm">Home</a></li>
+            <li><a href="orderonline.htm">Order Online</a></li>
+            <li><a href="contact.htm">Contact Us</a></li>
+         </ul>
+      </nav>
+
+      <article>
+         <h2>Menu</h2>
+         <form action = customer_information.htm>
+            <fieldset>
+               <legend><span>Banh Mi $6.00</span></legend>
+                <label for="banhmi">Quantity</label>
+               <input type="number" min = "0" max="100" id="banhmi" name="banhmi" />
+                <div class="spice">
+               <input type="radio" id="mildbm" name="bmspice" value="mild" />
+               <label for="mildbm">Mild</label>
+               <input type="radio" id="mediumbm" name="bmspice" value="medium" />
+               <label for="mediumbm">Medium</label>
+               <input type="radio" id="spicybm" name="bmspice" value="spicy" />
+               <label for="spicybm">Spicy</label>
+                </div>
+            </fieldset>
+             <fieldset>
+               <legend><span>Red Curry $7.50</span></legend>
+               <label for="redcurry">Quantity</label>
+               <input type="number" min = "0" max="100" id="redcurry" name="redcurry" />
+                <div class="spice">
+               <input type="radio" id="mildrc" name="rcspice" value="mild" />
+               <label for="mildrc">Mild</label>
+               <input type="radio" id="mediumrc" name="rcspice" value="medium" />
+               <label for="mediumrc">Medium</label>
+               <input type="radio" id="spicyrc" name="rcspice" value="spicy" />
+               <label for="spicyrc">Spicy</label>
+                 </div>
+            </fieldset>
+             <fieldset>
+               <legend><span>Cumin Chicken $8.00</span></legend>
+                 <label for="cuminchicken">Quantity</label>
+               <input type="number" min = "0" max="100" id="cuminchicken" name="cuminchicken" />
+                <div class="spice">
+                <input type="radio" id="mildcc" name="ccspice" value="mild" />
+               <label for="mildcc">Mild</label>
+               <input type="radio" id="mediumcc" name="ccspice" value="medium" />
+               <label for="mediumcc">Medium</label>
+               <input type="radio" id="spicycc" name="ccspice" value="spicy" />
+               <label for="spicycc">Spicy</label>
+                 </div>
+             </fieldset>
+            <div class = "buttonHolder">
+            <input type="submit" id="submitBtn" value="Submit" />
+            </div>
+         </form>
+      </article>
+       <script>
+        var banhMi = document.getElementById("banhmi");
+        var redCurry = document.getElementById("redcurry");
+        var cuminChicken = document.getElementById("cuminchicken");
+           
+        var banhMiMild = document.getElementById("mildbm");
+        var redCurryMild = document.getElementById("mildrc");
+        var cuminChickenMild = document.getElementById("mildcc");
+           
+        var banhMiMedium = document.getElementById("mediumbm");
+        var redCurryMedium = document.getElementById("mediumrc");
+        var cuminChickenMedium = document.getElementById("mediumcc");
+           
+        var banhMiSpicy = document.getElementById("spicybm");
+        var redCurrySpicy = document.getElementById("spicyrc");
+        var cuminChickenSpicy = document.getElementById("spicycc");
+           
+           
+        function banhMiSelect() {
+            if (banhMi.value > 0 && banhMiMedium.checked == "" && banhMiSpicy.checked == "")
+                banhMiMild.checked = "checked";
+            else if (banhMi.value <= 0)
+            {
+                banhMiMild.checked = "";
+                banhMiMedium.checked = "";
+                banhMiSpicy.checked = "";
+            } 
+        }
+        
+        function redCurrySelect() {   
+            if (redCurry.value > 0 && redCurryMedium.checked == "" && redCurrySpicy.checked == "")
+            {
+                redCurryMild.checked = "checked";
+            } else if (redCurry.value <= 0)
+            {
+                redCurryMild.checked = "";
+                redCurryMedium.checked = "";
+                redCurrySpicy.checked = "";
+            } 
+        }
+           
+        function cuminSelect() {   
+            if (cuminChicken.value > 0 && cuminChickenMedium.checked == "" && cuminChickenSpicy.checked == "")
+            {
+                cuminChickenMild.checked = "checked";
+            } else if (cuminChicken.value <= 0)
+            {
+                cuminChickenMild.checked = "";
+                cuminChickenMedium.checked = "";
+                cuminChickenSpicy.checked = "";
+            }
+        }
+           
+        if (banhMi.addEventListener) {
+             banhMi.addEventListener("change", banhMiSelect, false);
+        } else if (banhMi.attachEvent) {
+            banhMi.attachEvent("onclick", banhMiSelect);
+        }
+           
+        if (redCurry.addEventListener) {
+             redCurry.addEventListener("change", redCurrySelect, false);
+        } else if (redCurry.attachEvent) {
+            redCurry.attachEvent("onclick", redCurrySelect);
+        }  
+        
+        if (cuminChicken.addEventListener) {
+            cuminChicken.addEventListener("change", cuminSelect, false);
+        } else if (cuminChicken.attachEvent)
+            cuminChicken.attachEvent("onclick", cuminSelect);
+           
+       </script>
+      <footer>
+         <p>Orser Diner &bull; Ambler, PA</p>
+      </footer>
+   </div>
+</body>
+</html>
